@@ -1,16 +1,15 @@
-import { StyleSheet } from "react-native";
-
-import EditScreenInfo from "@/src/components/EditScreenInfo";
-import { Text, View } from "@/src/components/Themed";
+import { FlatList } from "react-native";
+import { tracks } from "@/assets/data/tracks";
+import TrackListItem from "@/src/components/TrackListItem";
 
 export default function TabOneScreen() {
-  return <View style={styles.container}></View>;
+  return (
+    <FlatList
+      data={tracks}
+      renderItem={({ item }) => {
+        return <TrackListItem track={item} />;
+      }}
+      showsVerticalScrollIndicator={false}
+    />
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
